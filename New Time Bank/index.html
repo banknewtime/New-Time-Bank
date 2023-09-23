@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Cadastro - New Bank Time</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, black 50%, white 50%);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            
+        }        
+            input,label{
+                display: block;
+                width: 100%;
+            }
+
+        /*div de entrada de dados*/
+        .login-container {
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 500px;
+            text-align: center;
+            padding: 25px;
+           
+        }
+          
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo img {
+            max-width: 100px;
+        }
+
+        .bank-name {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        /*linhas para separação de entrada dos textos*/
+
+        .form-group input {
+            display:flex;
+            flex-wrap:wrap;
+            width: 100%;
+            padding: 5px;
+            border: none;
+            border-bottom: 2px solid #bd0f83;
+            outline: none;
+            
+        }
+    
+    
+        /*texto dentro do forms*/
+        .form-group input::placeholder {
+            color: #333;
+        }
+        
+        .login-button {
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .half-box input{
+            display:flex;
+            flex-wrap:wrap;
+            width: 100%;
+            padding: 5px;
+            border: none;
+            border-bottom: 2px solid #bd0f83;
+            outline: none;
+            
+        }
+
+        .full-box input{
+            display:flex;
+            flex-wrap:wrap;
+            width: 100%;
+            padding: 5px;
+            border: none;
+            border-bottom: 2px solid #bd0f83;
+            outline: none;
+            
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="bank-name">New Bank Time</div>
+    <div class="login-container">
+        <div class="logo">
+            <img src="img/Logo.png" alt="Logo New Time Bank">
+        </div>
+        <h1> Cadastre-se para acessar o sistema</h1>
+        <form id="registerform" action="cadastro.php" method="POST">
+            <div class="half-box">
+                <label for ="name">Nome</label>
+                <input type="text" name="name" id="name" placeholder="Digite seu nome" required>
+                </div>
+            <div class="half-box">
+                <label for ="name">Sobrenome</label>
+                <input type="text" name="lastname" id="lastname" placeholder="Digite seu sobrenome" required>
+            </div>
+            <div class="half-box">
+                <label for ="text">CPF</label>
+                <input type="text" name="cpf" id="cpf" placeholder="Digite seu CPF" required>
+            </div>
+            <div class="full-box">
+                <label for ="E-mail">E-mail </label>
+                <input type="E-mail" name="email" id="email" placeholder="Digite seu E-mail" required>
+            </div>
+            <div class="half-box">
+                <label for ="password">Senha</label>
+                <input type="password" name="password" id="password" placeholder="Digite sua senha" required>
+            </div>
+            <br>
+
+            <button id="redirecionarBotao" class="login-button" type="submit">Registrar</button>
+        
+        </form>
+    </div>
+</body>
+</html>
+

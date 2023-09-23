@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - New Time Bank</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, black 50%, white 50%);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /*div de entrada de dados*/
+        .login-container {
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 300px;
+            text-align: center;
+        }
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo img {
+            max-width: 100px;
+        }
+
+     
+
+        .bank-name {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+
+        .menu-name {
+            color: rgb(0, 0, 0);
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        /*texto dentro do forms*/
+        .form-group input::placeholder {
+            color: #333;
+        }
+        
+        .login-button {
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 10px;
+            cursor: pointer;
+        }
+        
+    </style>
+
+</head>
+<body>
+    <div class="bank-name">New Time Bank</div>
+    <div class="login-container">
+
+        <div class="logo">
+            <a href="login.html">
+            <img src="img/Logo.png" alt="Logo New Time Bank">
+            </a>
+        </div>
+
+        <div class="menu-container">
+        <div class="menu-name">Menu</div>
+        </div>
+
+
+       <div class="transferencia">
+        <form action="transferencia.php" method="POST"> 
+
+            <!-- fazer java script -->
+            <!-- Linkar as paginas do href  quando feitas -->
+
+            <div class="form-group">
+                <a href="pix.html">
+                    <img src="./img/pix.png" alt="PIX" width="50" height="50">
+                </a>
+                
+            </div>
+
+
+            <div class="form-group">
+                <a href="transferencia.html">
+                    <img src="./img/transferência.png" alt="transferência" width="50" height="50">
+                </a>
+            </div>
+
+            
+            <div class="form-group">
+                <a href="depositar.html">
+                    <img src="./img/deposito.png" alt="depositar" width="60" height="60">
+                </a>
+            </div>
+
+            
+            <div class="form-group">
+                <a href="pagar.html">
+                    <img src="./img/pagar.png" alt="pagamento" width="60" height="60">
+                </a>
+            </div>
+
+            
+            <div class="form-group">
+                <a href="extrato.html">
+                    <img src="./img/extrato.png" alt="extrato" width="70" height="70">
+                </a>
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>
+
