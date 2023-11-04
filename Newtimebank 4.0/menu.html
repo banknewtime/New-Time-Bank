@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - New Time Bank</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, black 50%, rgb(0, 0, 0) 50%);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /*div de entrada de dados*/
+        .login-container :before {
+
+            background-color: rgb(0, 0, 0);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.0);
+            width: 300px;
+            text-align: center;
+            /* Camada semitransparente */
+        }
+
+        .menu-name {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <br>
+    <div class="menu-name">Menu</div>
+
+    <div class="login-container">
+        <div style="position: relative; display: inline-block;">
+
+            <H4 class="numero" id="numero"
+                style="position: absolute; top: 70px;  right: 20px;  width: 100%; height: 40px; text-align: right; color: rgb(0, 0, 0);">
+            </H4>
+
+            <H4
+                style="position: absolute; top: 70px;  right: 55px;  width: 100%; height: 40px; text-align: right; color: rgb(0, 0, 0);">
+                R$:</H4>
+
+            <H4 class="nomeUsuario" id="nomeUsuario"
+                style="position: absolute; top: 70px;  right: 155px;  width: 100%; height: 40px; text-align: right; color: rgb(255, 255, 255);">
+            </H4>
+
+            
+            <!-- Apresentar valor da variavel numero da agencia java script-->
+            <H4 class="numeroAgencia" id="numeroAgencia"
+                style="position: absolute; top: 90px;  left: 45px;  width: 100%; height: 40px; text-align: left; color: rgb(255, 255, 255);">
+            </H4>
+
+
+            <!-- Apresentar valor da variavel numero da conta java script valor na pagina pagar-->
+            <H4 class="numeroConta" id="numeroConta"
+                style="position: absolute; top: 90px;  left: 95px;  width: 100%; height: 40px; text-align: left; color: rgb(255, 255, 255);">
+            </H4>
+
+
+            <H4 class="tipoConta" id="tipoConta"
+                style="position: absolute; top: 105px;  right: 175px;  width: 100%; height: 40px; text-align: right; color: rgb(255, 255, 255);">
+            </H4>
+
+
+
+
+            <!-- Foto menu inteiro -->
+            <img src="img/menu.png" alt="menu" style="pointer-events: none; -webkit-user-drag: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;" display: block; margin: 0; auto;>
+
+
+
+            <!-- #region -->
+            <!-- Botão transparente para o link -->
+            <button
+                style="position: absolute; top: 20px; left: 0; width: 100%; height: 40px; background: transparent; border: none;"
+                onclick="window.location.href='boasVindas.html'"></button>
+
+            <!-- Botão transparente para o link -->
+            <button
+                style="position: absolute; top: 253px; left: 0; width: 100%; height: 40px; background: transparent; border: none;"
+                onclick="window.location.href='pix.html'"></button>
+
+
+            <!-- Botão transparente para o link -->
+            <button
+                style="position: absolute; top: 322px; left: 0; width: 100%; height: 40px; background: transparent; border: none;"
+                onclick="window.location.href='transferir.html'"></button>
+
+
+            <!-- Botão transparente para o link -->
+            <button
+                style="position: absolute; top: 390px; left: 0; width: 100%; height: 40px; background: transparent; border: none;"
+                onclick="window.location.href='pagar.html'"></button>
+
+            <!-- Botão transparente para o link -->
+            <button
+                style="position: absolute; top: 600px; left: 0; width: 100%; height: 40px; background: transparent; border: none;"
+                onclick="window.location.href='boasVindas.html'"></button>
+
+
+        </div>
+
+        <!-- #endregion -->
+
+        <script>
+            //container para ficar travado igual a foto
+            document.addEventListener('login-container', function (e) {
+                e.preventDefault();
+            });
+
+            // Cria uma variável JavaScript com um valor em número
+            const numero = 1000;
+
+            function mostrar(numero) {
+                return `${numero}`;
+            }
+            document.getElementById("numero").innerHTML = mostrar(numero);
+
+            // Obtém o valor do campo de texto `name` e `lastname`
+            const name = "Maria";
+            const lastname = "Santos";
+
+
+            // Atualiza o conteúdo da `<H4>` //funcionando
+            document.getElementById("nomeUsuario").textContent = `${name} ${lastname.toString()}`;
+
+
+            // Cria uma variável JavaScript e apresenta 
+            const numeroAgencia = 1234 + ' /';
+
+            function mostrar2(numeroAgencia) {
+                return ` ${numeroAgencia}`;
+            }
+
+            document.getElementById("numeroAgencia").innerHTML = mostrar2(numeroAgencia);
+
+
+            // Cria uma variável JavaScript e apresenta 
+            const numeroConta = 5467;
+
+            function mostrar3(numeroConta) {
+                return ` ${numeroConta}`;
+            }
+
+            document.getElementById("numeroConta").innerHTML = mostrar3(numeroConta);
+
+
+            // Cria uma variável JavaScript com um valor
+            const tipoConta = "Corrente";
+
+            function mostrar4(tipoConta) {
+                return `${tipoConta}`;
+            }
+
+            document.getElementById("tipoConta").innerHTML = mostrar4(tipoConta);
+
+            // Cria agencia JavaScript com um valor
+            const agencia = "";
+
+            function mostrar5(tipoConta) {
+                return `${tipoConta}`;
+            }
+
+            document.getElementById("tipoConta").innerHTML = mostrar5(tipoConta);
+
+
+            //tentativa e erro
+            // // Puxa os dados da página Cadastro.html
+            // fetch("Cadastro.html", {
+            //   method: "POST",
+            //   body: new FormData(document.querySelector("register-form")),
+            // })
+            //   .then((response) => response.json())
+            //   .then((data) => {
+            //     // Exibe os dados do formulário
+            //     document.querySelector("nomeUsuario").textContent = data.name + " " + data.lastname;
+            //   });
+        </script>
+
+
+</body>
+
+</html>

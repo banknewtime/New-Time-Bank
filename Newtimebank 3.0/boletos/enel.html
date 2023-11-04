@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <script src="pagando.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pagamento - New Time Bank</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /*div de entrada de dados*/
+        .pagando-container :before {
+
+            background-color: rgb(0, 0, 0);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.0);
+            width: 300px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.5);
+            /* Camada semitransparente */
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Botão transparente para o link no topo da pagina -->
+
+    
+    <div class="cadastro"></div>
+
+    <div class="pagando-container">
+        <div style="position: relative; display: inline-block;">
+
+
+            <!-- Foto inteira resolução 600px -->
+            <img src="/img/15.png" class="imagemBoleto" id="imagemBoleto" height="600px" alt="menu" style="pointer-events: none; display:
+        block; margin: 0 auto;">
+        </div>
+
+        <button
+        style="position: absolute; top: 70px; left: 0; width: 100%; height: 40px; background: transparent; border: none;"
+        onclick="window.location.href='/pagar.html'"></button>
+
+
+
+        <!-- criar imputs agencia conta e saldo puxando do scriptjs 
+            
+
+                nome do pagador e documento pagador puxar do login lari
+            -->
+
+            <script>
+                //container para ficar travado igual a foto
+                document.addEventListener('pagar-container', function (e) {
+                  e.preventDefault();
+                });
+                </script>
+</body>
+
+</html>

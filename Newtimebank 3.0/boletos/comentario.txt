@@ -1,0 +1,135 @@
+//testes de iiner html, replace e tentativas de switch case com foto (não deu certo)
+
+
+// //container para ficar travado igual a foto
+// document.addEventListener('pagar-container', function (e) {
+//   e.preventDefault();
+// });
+
+// //criar botao transparent com id btnpagando na pagina pagando.html
+// document.getElementById('btnpagar').addEventListener('click', function (e) {
+//   validaBoleto();
+// });
+
+
+
+
+// const codigos = ["5687515687546", "5478121859687", "8743684321879", "8654213548351", "3899565487653"];
+// var saldo = 1000;
+// var valor = 50;
+// async function validaBoleto() {
+//   var codigoBarras = document.getElementById("boleto").value;
+
+
+//   //ignorar case 1
+//   switch (codigoBarras) {
+//     case '5687515687546':
+//       valor = 100;
+//       //criar botao transparent com id btnpagando na pagina pagando.html usar de modelo
+//       document.getElementById('btnpagando').addEventListener('click', function (e) {
+//         pagando();
+//       });
+//       break;
+
+
+//     case '5478121859687':
+//       valor = 200;
+//       document.getElementById('#btnpagando').addEventListener('click', function (e) {
+//         pagando();
+//       });
+//       const foto1 = await fetch('img/17.png');
+//       document.querySelector('#imagemBoleto').innerHTML = `<img src="${foto.src}" alt="">`;
+//       break;
+
+
+
+//     // case '5478121859687':
+//     //   valor = 200;
+//     //   document.getElementById('#btnpagando').addEventListener('click', function (e) {
+//     //     pagando();
+//     //   });
+//     //   const foto = await fetch('img/15.png');
+//     //   const src = await foto.url;
+//     //   document.querySelector('#imagemBoleto').innerHTML = `<img src="${src}" alt="">`;
+//     //   break;
+
+
+
+
+
+//       // case '5478121859687':
+//       // valor = 200;  
+//       //  //criar botao transparent com id btnpagando na pagina pagando.html usar de modelo
+//       //  document.getElementById('btnpagando').addEventListener('click', function (e) {
+//       //   pagando();
+//       // });
+
+//       // const foto1 = await fetch("/img/15.png");
+
+
+//       // // Define o inner HTML do elemento de imagem
+//       // document.querySelector("#imagem").innerHTML = `<img src= alt="">`;
+
+//       // break;
+
+//     case '8743684321879':
+//       valor = 150;
+//       //criar botao transparent com id btnpagando na pagina pagando.html usar de modelo
+//       document.getElementById('btnpagando').addEventListener('click', function (e) {
+//         pagando();
+//       });
+//       const foto2 = await fetch("/img/16.png");
+
+
+//       // Define o inner HTML do elemento de imagem
+//       document.querySelector("#imagem").innerHTML = `<img src="${foto.url}" alt="">`;
+//       break;
+
+//     case '8654213548351':
+//       valor = 130
+//       //criar botao transparent com id btnpagando na pagina pagando.html usar de modelo
+//       document.getElementById('btnpagando').addEventListener('click', function (e) {
+//         pagando();
+//       });
+//       const foto3 = await fetch("/img/17.png");
+
+
+//       // Define o inner HTML do elemento de imagem
+//       document.querySelector("#imagem").innerHTML = `<img src="${foto.url}" alt="">`;
+//       break;
+
+//     case '3899565487653':
+//       valor = 230;
+//       //criar botao transparent com id btnpagando na pagina pagando.html usar de modelo
+//       document.getElementById('btnpagando').addEventListener('click', function (e) {
+//         pagando();
+//       });
+
+
+//       const foto4 = await fetch("/img/18.png");
+
+
+//       // Define o inner HTML do elemento de imagem
+//       document.querySelector("#imagem").innerHTML = `<img src="${foto.url}" alt="">`;
+//       break;
+
+//     default:
+//       alert("Código de barras inexistente!");
+
+//       //fazer imagem em branco para codigo inexixtente ou inner html
+//       //se nao der certo fazer inner em nulo pra zerar
+
+
+//       window.location.replace('menu.html');
+//   }
+// }
+
+// function pagando() {
+//   if (saldo > valor) {
+//     //inner html 
+
+//     window.location.href = "confirmacaoPagamento.html";
+//   } else {
+//     alert("Saldo Insuficiente!");
+//   }
+// }

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Cadastro - New Bank Time</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            background:black;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            
+        }        
+            input,label{
+                display: block;
+                width: 100%;
+            }
+
+        /*div de entrada de dados*/
+        .login-container {
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 500px;
+            text-align: center;
+            padding: 25px;
+           
+        }
+          
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo img {
+            max-width: 100px;
+        }
+
+        .bank-name {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        /*linhas para separação de entrada dos textos*/
+
+        .form-group input {
+            display:flex;
+            flex-wrap:wrap;
+            width: 100%;
+            padding: 5px;
+            border: none;
+            border-bottom: 2px solid #bd0f83;
+            outline: none;
+            
+        }
+    
+    
+        /*texto dentro do forms*/
+        .form-group input::placeholder {
+            color: #333;
+        }
+        
+        .login-button {
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .half-box input{
+            display:flex;
+            flex-wrap:wrap;
+            width: 100%;
+            padding: 5px;
+            border: none;
+            border-bottom: 2px solid #bd0f83;
+            outline: none;
+            
+        }
+
+       
+
+        .cpf-box{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .half-box label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: auto;
+            margin-right: 10px;
+        }
+        
+        
+
+         .spacing-box {
+            
+            margin-right: 2.5%;
+
+            }
+
+
+
+        /* Estilos CSS aqui... */
+
+    </style>
+</head>
+<body>
+    <div class="bank-name">New Bank Time</div>
+    <div class="login-container">
+        <div class="logo">
+            <img src="https://trello.com/1/cards/64f7bc494e7b5d260fc84761/attachments/64ffa42894c915c7dec6cf58/previews/64ffa42994c915c7dec6cfde/download/Logo.png" alt="Logo New Bank Time">
+        </div>
+        <h1>Cadastre-se:</h1>
+        <form id="register-form">
+            <div class="half-box spacing">
+                <label for="name">Nome:</label>
+                <input type="text" name="name" id="name" placeholder="" required>
+            </div>
+            <div class="half-box">
+                <label for="lastname">Sobrenome:</label>
+                <input type="text" name="lastname" id="lastname" placeholder="" required>
+            </div>
+            <div class="half-box">
+                <label class="cpf-box" for="CPF">CPF:</label>
+                <input type="text" name="text" id="CPF" placeholder="" required>
+            </div>
+            <div class="half-box">
+                <label for="email">E-mail:</label>
+                <input type="email" name="email" id="email" placeholder="" required>
+            </div>
+            <div class="half-box">
+                <label for="password">Senha:</label>
+                <input type="password" name="password" id="password" placeholder="" required>
+            </div>
+            <div class="half-box">
+                <label for="confirm-password"  >Confirme senha:</label>
+                <input type="password" name="confirm-password" id="confirm-password" placeholder="" required>
+            </div>
+            <br>
+            <button class="login-button" type="submit">Registrar</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("register-form");
+
+            form.addEventListener("submit", function (e) {
+                e.preventDefault(); // Impede o envio do formulário
+
+                // Coleta os valores dos campos de entrada
+                const name = document.getElementById("name").value;
+                const lastname = document.getElementById("lastname").value;
+                const cpf = document.getElementById("CPF").value;
+                const email = document.getElementById("email").value;
+                const password = document.getElementById("password").value;
+                const confirmPassword = document.getElementById("confirm-password").value;
+
+                // Verifica se as senhas são iguais
+                if (password === confirmPassword) {
+                    // Cria um objeto com as informações coletadas
+                    const user = {
+                        name: name,
+                        lastname: lastname,
+                        cpf: cpf,
+                        email: email,
+                        password: password
+                    };
+
+                    // Cria um array ou lista e adiciona o objeto de usuário a ele
+                    const userList = [];
+                    userList.push(user);
+
+                    // Exibe um popup de confirmação
+                    alert("Cadastro realizado com sucesso!");
+                    console.log(userList);
+
+                    // Limpa os campos do formulário
+                    form.reset();
+                } else {
+                    // Senhas não são iguais, exibe uma mensagem de erro
+                    alert("Senhas não compatíveis. Por favor, verifique e tente novamente.");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

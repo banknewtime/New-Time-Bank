@@ -1,0 +1,54 @@
+const mysql = require('mysql2/promise');
+
+// Configuração de conexão ao banco de dados MySQL
+const pool = mysql.createPool({
+  host: 'localhost',
+  user: 'root',
+  password: "",
+  database: 'testePix',
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
+});
+
+// Função para realizar uma transferência PIX
+async function transferenciaPIX(chavePixRemetente, chavePixDestinatario, valor) {
+  const connection = await pool.getConnection();
+
+  try {
+    // Iniciar uma transação
+    await connection.beginTransaction();
+
+    // Verificar se as contas existem
+    const [remetente] = await connection.execute('SELECT * FROM contas WHERE chave_pix = ?', [chavePixRemetente]);
+    const [destinatario] = await connection.execute('SELECT * FROM contas WHERE chave_pix = ?', [chavePixDestinatario]);
+
+    if (remetente.length === 0 || destinatario.length === 0) {
+      throw new Error('Conta remetente ou destinatário não encontrada.');
+    }
+
+    // Verificar se o remetente tem saldo suficiente
+    if (remetente[0].saldo < valor) {
+      throw new Error('Saldo insuficiente para realizar a transferência.');
+    }
+
+    // Atualizar saldos
+    await connection.execute('UPDATE contas SET saldo = saldo - ? WHERE chave_pix = ?', [valor, chavePixRemetente]);
+    await connection.execute('UPDATE contas SET saldo = saldo + ? WHERE chave_pix = ?', [valor, chavePixDestinatario]);
+
+    // Confirmar a transação
+    await connection.commit();
+
+    console.log('Transferência PIX realizada com sucesso!');
+  } catch (error) {
+    // Reverter a transação em caso de erro
+    await connection.rollback();
+    console.error('Erro ao realizar a transferência PIX:', error);
+  } finally {
+    // Liberar a conexão
+    connection.release();
+  }
+}
+
+// Exemplo de uso da função para realizar uma transferência PIX
+transferenciaPIX('chave_pix1', 'chave_pix2', 100); // Substitua as chaves_pix e o valor conforme necessário
