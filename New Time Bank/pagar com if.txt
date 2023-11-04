@@ -1,0 +1,162 @@
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="pagando.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagar - New Bank Time</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: black;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /*div do quadrado central*/
+        .pagar-container {
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 300px;
+            text-align: center;
+        }
+
+        .logo {
+            float: right;
+            margin-bottom: 45px;
+            display: flex;
+            margin-top: 0px;
+        }
+
+        .logo img {
+            max-width: 68px;
+        }
+
+        .seta {
+            float: left;
+            margin-bottom: 45px;
+            display: flex;
+            margin-top: 24px;
+        }
+
+        .seta img {
+            max-width: 12px;
+        }
+
+        /*texto PAGAR no topo junto com a logo*/
+        .operacao-pagar {
+            color: rgb(0, 0, 0);
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: left;
+            margin-left: 19px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        /*linhas para separação de entrada dos textos*/
+
+        .form-group input {
+            width: 100%;
+            padding: 5px;
+            border: none;
+            border-bottom: 2px solid #bd0f83;
+            outline: none;
+            margin-top: 30px;
+
+        }
+
+        /*texto dentro do forms*/
+        .form-group input::placeholder {
+            color: #333;
+        }
+
+        .confirmacao-button {
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 40px;
+        }
+
+        /*linha abaixo do PAGAR*/
+        hr {
+            margin-top: 5px;
+            margin-bottom: 45px;
+            margin-left: 19px;
+            height: 1px;
+            background: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pagar-container">
+        <div class="seta">
+            <img src="img/seta.png" alt="seta de voltar" id="seta" onclick="window.location.href = 'menu.html'">
+        </div>
+        <div class="operacao-pagar">
+            PAGAR
+            <div class="logo">
+                <img src="img/logoB.png" alt="Logo New Time Bank">
+            </div>
+        </div>
+        <hr size="2">
+
+
+        <form id="digitarBarras">
+            <div class="form-group">
+
+                <input type="text" id="boleto" placeholder="Entre com o código de barras">
+            </div>
+            <button class="confirmacao-button" type="submit" id="btnpagar">Continuar</button>
+        </form>
+
+    </div>
+
+
+<script>
+
+    
+const codigos = ["5687515687546", "5478121859687", "8743684321879", "8654213548351", "3899565487653"];
+    const paginasDeDestino = ["/boletos/sabesp.html", "/boletos/enel.html", "boletos/nubank.html", "boletos/uncu.html", "/boletos/casasbahia.html" ];
+
+    document.getElementById("btnpagar").addEventListener("click", function(event) {
+    event.preventDefault(); // Impede o envio do formulário
+
+    // Obter o código de barras digitado pelo usuário.
+    const codigoBarras = document.getElementById("boleto").value;
+
+    // Verificar se o código de barras é válido.
+    if (!codigos.includes(codigoBarras)) {
+        // Exibir uma mensagem de erro.
+        alert("O código de barras é inválido.");
+        window.location.replace('menu.html');
+    } else {
+        // Encontrar a página de destino correspondente ao código de barras.
+        const indice = codigos.indexOf(codigoBarras);
+        // Redirecionar o usuário para a página de destino.
+        window.location.href = paginasDeDestino[indice];
+    }
+});
+
+
+
+</script>
+
+
+</body>
+
+</html>
