@@ -1,0 +1,234 @@
+<html lang="pt"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pix - New Bank Time</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: black;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /*div do quadrado central*/
+        .transferencia-container {
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 300px;
+            text-align: center;
+        }
+        
+        .logo {
+            float: right;
+            margin-bottom: 45px;
+            display: flex;
+            margin-top: 0px;
+        }
+        
+        .logo img {
+            max-width: 68px;
+        }
+        .seta {
+            float: left;
+            margin-bottom: 45px;
+            display: flex;
+            margin-top: 24px;
+        }
+        
+        .seta img {
+            max-width: 12px;
+        }
+        /*texto TRANFERÊNCIA no topo junto com a logo*/
+        .operacao-transferencia {
+            color: rgb(0, 0, 0);
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: left;
+            margin-left: 19px;
+        }
+        
+        .form-group {
+            margin-bottom: 30px;
+        }
+        
+        /*linhas para separação de entrada dos textos*/
+
+        .form-group input {
+            width: 100%;
+            padding: 5px;
+            border: none;
+            border-bottom: 2px solid #bd0f83;
+            outline: none;
+            margin-top: 30px;
+            
+        }
+        
+        /*texto dentro do forms*/
+        .form-group input::placeholder {
+            color: #5a0606;
+        }
+        
+        .continuarPagamento-button {
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 40px;
+        }
+        input {
+            width: 250px;
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            outline: none; /* Remove a borda de foco padrão */
+        }
+        select{
+            width: 250px;
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            outline: none; /* Remove a borda de foco padrão */
+            color: gray
+        }
+        /*linha abaixo do PIX*/
+        #h1{
+            margin-top: 15px;
+            margin-bottom: 45px;
+            margin-left: 19px;
+            height: 1px;
+            background: #bd0f83;
+        }
+        #h2{
+            margin-top: 10px;
+            margin-bottom: 15px;
+            margin-left: 19px;
+            height: 1px;
+            background: #bd0f83;
+        }
+        button {
+            background-color: #bd0f83;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 40px;
+        }
+
+        /* Estilo ao passar o mouse sobre o botão */
+        button:hover {
+            background-color: #ff1493; /* Cor de rosa mais escura ao passar o mouse */
+        }
+        #p1{
+            text-align: left;
+            font-weight: bolder;
+            margin-top: 5px;
+            margin-bottom: 2px;
+            font-size: smaller;
+            margin-left: 10px;
+        }
+        #p2{
+            text-align: left;
+            font-weight: bolder;
+            margin-top: 5px;
+            margin-bottom: 2px;
+            font-size: smaller;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="transferencia-container">
+            <div class="seta">
+                <img src="img/seta.png" alt="seta de voltar" id="seta" onclick="window.location.href = 'menu.html'">
+                </div>
+        <div class="operacao-transferencia">
+            TRANFERÊNCIA
+            <div class="logo">
+            <img src="img/logoB.png" alt="Logo New Time Bank">
+            </div>
+        </div>
+        <hr id="h1"size="2">
+        <form id="transferForm">
+            <form>
+            <p id="p1">DADOS DO REMETENTE</p>
+            <input type="text" id="numeroContaRemetente" placeholder="Número da conta">
+            <hr id="h2" size="1">
+            <p id="p2">DADOS DO FAVORECIDO</p>
+            <select id="instituição" name="Instituição">
+                <option value="New Time Bank">New Time Bank</option>
+                <option value="American Express">American Express</option>
+                <option value="Banco do Brasil">Banco do Brasil</option>
+              </select>
+              <select id="tipoConta" name="TipoConta">
+                <option value="Corrente">Conta Corrente</option>
+                <option value="Poupança">Conta Poupança</option>
+              </select>
+            <input type="text" id="agencia" placeholder="Número da Agência">
+            <input type="text" id="numeroContaDestinatario" placeholder="Número da Conta">
+            <input type="text" id="valor" placeholder="Informe o valor">
+            
+            <button  
+            type="button" onclick="realizarTransferencia()">Realizar Transferência</button>
+        </form>
+        <p id="mensagem"></p>
+    
+        <script>
+            function realizarTransferencia() {
+
+                
+                const numeroContaRemetente = document.getElementById('numeroContaRemetente').value;
+                const numeroContaDestinatario = document.getElementById('numeroContaDestinatario').value;
+                const valor = parseFloat(document.getElementById('valor').value);
+    
+                fetch('/transferencia', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        numeroContaRemetente,
+                        numeroContaDestinatario,
+                        valor
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        document.getElementById('mensagem').textContent = 'Transferência realizada com sucesso!';
+     // Adicione um botão para ir para a página do comprovante PIX
+        const button = document.createElement('button');
+        button.textContent = 'Ver Comprovante TRANSFERÊNCIA';
+        button.addEventListener('click', function() {
+            window.location.href = 'comprovanteTransferencia.html';
+        });
+        // Adicione o botão ao seu documento
+        const mensagemDiv = document.getElementById('mensagem');
+        mensagemDiv.appendChild(button);
+                    } else {
+                        document.getElementById('mensagem').textContent = 'Erro ao realizar a transferência: ' + data.error;
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('mensagem').textContent = 'Erro ao realizar a transferência: ' + error;
+                });
+                // Armazene o nomeDoCliente e saldoDoCliente no localStorage
+                     localStorage.setItem('comprovaTransferRemetente', numeroContaRemetente);
+                    localStorage.setItem('comprovaTransferDestinatario', numeroContaDestinatario);
+                    localStorage.setItem('comprovavalorTransfer', valor );
+            }
+        </script>
+    </body>
+    </html>
